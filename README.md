@@ -7,3 +7,5 @@ As soon as you start filling out the form, the preview of the PDF file will be g
 When you have completed the template you can click on the "Download PDF" button which is located at the bottom of the page.
 
 A PDF file should be downloaded to your device in the correct format.
+
+You can see the live application here: https://pl-waw-araa-cvgenerate.github.io/cv-one-page-generator/
