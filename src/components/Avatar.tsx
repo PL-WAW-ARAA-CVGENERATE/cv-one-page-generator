@@ -1,5 +1,5 @@
 import { useState } from "react";
-import portriatPlaceholder from "../images/portraitPlaceholder.png";
+import portraitPlaceholder from "../images/portraitPlaceholder.png";
 import { useDropzone } from "react-dropzone";
 import Slider from "@mui/material/Slider";
 import Cropper from "react-easy-crop";
@@ -17,7 +17,7 @@ const AvatarEdit = ({ getAvatar }: iAvatarEdit) => {
 	const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
 	const [zoom, setZoom] = useState(1);
 	const [croppedArea, setCroppedArea] = useState<any>(null);
-	const [image, setImage] = useState<any>(portriatPlaceholder);
+	const [image, setImage] = useState<any>(portraitPlaceholder);
 
 	const onDrop = (acceptedFiles: any) => {
 		const reader = new FileReader();
