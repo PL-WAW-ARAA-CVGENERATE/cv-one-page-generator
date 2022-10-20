@@ -16,7 +16,7 @@ const generatePDF = () => {
 	pdf.html(domElement, {
 		callback: function (pdf) {
 			pdf.setFont("Roboto-Regular");
-			pdf.save(`${new Date().toISOString()}.pdf`);
+			pdf.save("CV_Template_Filled.pdf");
 		},
 		html2canvas: {
 			windowHeight: 800,
