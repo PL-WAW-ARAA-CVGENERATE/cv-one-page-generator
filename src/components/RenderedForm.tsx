@@ -94,7 +94,7 @@ const RenderedForm = ({ state, croppedArea, image }: any) => {
 					boxShadow: "none",
 					color: "black",
 					height: "800px",
-					display: "flex",
+					display: { xs: "none", sm: "flex" },
 					flexDirection: "column",
 					justifyContent: "space-between",
 					padding: 2,
