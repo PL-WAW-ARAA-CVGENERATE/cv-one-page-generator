@@ -1,7 +1,7 @@
 {
 	"name": "onepagegenerator",
 	"version": "0.1.0",
-	"homepage": "https://pl-waw-araa-cvgenerate.github.io",
+	"homepage": "https://pl-waw-araa-cvgenerate.github.io/cv-one-page-generator/",
 	"private": true,
 	"dependencies": {
 		"@emotion/react": "^11.9.3",
