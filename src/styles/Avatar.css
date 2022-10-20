@@ -1,0 +1,24 @@
+.cropper {
+	position: relative;
+	height: 200px;
+}
+
+.viewer {
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.output {
+	position: relative;
+	width: 300px;
+	overflow: hidden;
+}
+
+.output img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: top left;
+}
