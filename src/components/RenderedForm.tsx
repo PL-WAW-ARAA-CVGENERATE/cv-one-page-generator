@@ -108,7 +108,7 @@ const RenderedForm = ({ state, croppedArea, image }: any) => {
 					container
 					gap={2}
 					alignItems="center"
-					padding={2}
+					padding={1}
 					sx={{ borderBottom: 3, borderBottomColor: "#1565C0" }}
 				>
 					<OutputAvatar croppedArea={croppedArea} image={image} />
@@ -156,9 +156,9 @@ const RenderedForm = ({ state, croppedArea, image }: any) => {
 					)}
 				</Grid>
 				<Grid
-					padding={2}
+					paddingTop={1}
 					sx={{
-						borderTop: 4,
+						borderTop: 3,
 						borderTopColor: "#1565C0",
 					}}
 				>
