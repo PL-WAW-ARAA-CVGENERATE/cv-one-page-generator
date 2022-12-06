@@ -11,13 +11,12 @@ const Header = () => (
 	>
 		<Toolbar>
 			<Typography variant="h6" color="inherit" noWrap>
-				Atos One Pager Generator
+				Atos One Pager Generator (2.1v)
 			</Typography>
 		</Toolbar>
 		<Button
-			variant="contained"
+			variant="outlined"
 			href="#editForm"
-			color="secondary"
 			sx={{
 				top: "12px",
 				display: { xs: "none", sm: "inline-block" },
@@ -32,7 +31,6 @@ const Header = () => (
 		<Button
 			variant="contained"
 			href="#OnePagerResult"
-			color="success"
 			sx={{
 				top: "12px",
 				display: { xs: "none", sm: "inline-block" },

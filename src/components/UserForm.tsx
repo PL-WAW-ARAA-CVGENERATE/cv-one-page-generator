@@ -3,10 +3,12 @@ import { FormControlLabel, Grid, TextField, Typography } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import AvatarEdit from "./Avatar";
 import Editor from "./Editor";
+import Disclaimer from "./Disclaimer";
 
 const UserForm = ({ updateText, state, includeField, setAvatar }: any) => {
 	return (
-		<Container id="editForm" component="main" maxWidth="xl" sx={{ mb: 4 }}>
+		<Container maxWidth="xl" sx={{ mb: 4, mt: 4 }}>
+			<Disclaimer />
 			<Grid
 				container
 				spacing={1}
