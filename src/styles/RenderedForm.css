@@ -1,3 +1,13 @@
 .display-linebreak {
-    white-space: pre-line;
+	white-space: pre-line;
+}
+
+.ql-snow .ql-editor {
+	min-height: 150px;
+	max-height: 150px;
+	overflow: auto;
+}
+
+.ql-bubble .ql-editor {
+	padding: 0;
 }

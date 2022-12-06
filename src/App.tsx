@@ -48,7 +48,11 @@ const App = () => {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Header />
-			<Container component="main" sx={{ mb: 4, padding: 2 }}>
+			<Container
+				id="editForm"
+				component="main"
+				sx={{ mb: 4, padding: 2, marginTop: 4 }}
+			>
 				<UserForm
 					updateText={updateText}
 					state={state}

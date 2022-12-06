@@ -4,6 +4,8 @@ import removeAccents from "remove-accents";
 import { Button, Grid, Typography, Container } from "@mui/material";
 import Tile from "./Tile";
 import jsPDF from "jspdf";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.bubble.css";
 
 const generatePDF = () => {
 	const domElement = document.getElementById("OnePagerResult")!;
@@ -55,8 +57,8 @@ const OutputAvatar = ({ croppedArea, image }: any) => {
 			className="output avatar-image"
 			style={{
 				borderRadius: "50%",
-				width: "150px",
-				height: "150px",
+				width: "90px",
+				height: "90px",
 			}}
 		>
 			<img src={image} alt="" style={imageStyle} />
@@ -97,7 +99,7 @@ const RenderedForm = ({ state, croppedArea, image }: any) => {
 					display: { xs: "none", sm: "flex" },
 					flexDirection: "column",
 					justifyContent: "space-between",
-					padding: 2,
+					padding: 1,
 					maxWidth: "xl",
 					width: "100%",
 				}}
@@ -106,45 +108,58 @@ const RenderedForm = ({ state, croppedArea, image }: any) => {
 					container
 					gap={2}
 					alignItems="center"
-					padding={2}
-					sx={{ borderBottom: 4, borderBottomColor: "#1565C0" }}
+					padding={1}
+					sx={{ borderBottom: 3, borderBottomColor: "#1565C0" }}
 				>
 					<OutputAvatar croppedArea={croppedArea} image={image} />
 					<Grid item xs={10} container direction={"column"}>
-						<Typography variant="h2">
+						<Typography variant="h4">
 							{removeAccents.remove(name) + " " + removeAccents.remove(surname)}
 						</Typography>
-						<Typography color="rgb(5, 150, 255)" variant="h4">
+						<Typography color="rgb(5, 150, 255)" variant="h5">
 							{removeAccents.remove(role)}
 						</Typography>
 					</Grid>
 				</Grid>
 				<Grid
 					container
-					gap={2}
-					padding={2}
 					sx={{
+						alignContent: "start",
 						fontSize: 12,
+						flexDirection: "column",
 						flexGrow: 1,
-						marginBottom: 1,
 						marginTop: 1,
-						maxHeight: 530,
 						overflow: "hidden",
 					}}
 				>
-					{state.skills.map((el: any, i: number) => (
-						<Tile
-							title={el.fieldName}
-							display={el.shouldInclude}
-							content={removeAccents.remove(el.content)}
-							key={i}
-						/>
-					))}
+					{state.skills.map((el: any, i: number) =>
+						el.shouldInclude ? (
+							<Container
+								key={i}
+								title={el.fieldName}
+								sx={{ width: "50%", padding: 0, marginBottom: "15px" }}
+							>
+								<Typography
+									color="rgb(5, 150, 255)"
+									fontSize="17px"
+									fontWeight={600}
+									paddingBottom="5px"
+								>
+									{el.fieldName}
+								</Typography>
+								<ReactQuill
+									value={el.content}
+									readOnly={true}
+									theme={"bubble"}
+								/>
+							</Container>
+						) : null
+					)}
 				</Grid>
 				<Grid
-					padding={2}
+					paddingTop={1}
 					sx={{
-						borderTop: 4,
+						borderTop: 3,
 						borderTopColor: "#1565C0",
 					}}
 				>

@@ -1,11 +1,14 @@
 import Container from "@mui/material/Container";
-import { FormControlLabel, Grid, TextField } from "@mui/material";
+import { FormControlLabel, Grid, TextField, Typography } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import AvatarEdit from "./Avatar";
+import Editor from "./Editor";
+import Disclaimer from "./Disclaimer";
 
 const UserForm = ({ updateText, state, includeField, setAvatar }: any) => {
 	return (
-		<Container component="main" maxWidth="xl" sx={{ mb: 4 }}>
+		<Container maxWidth="xl" sx={{ mb: 4, mt: 4 }}>
+			<Disclaimer />
 			<Grid
 				container
 				spacing={1}
@@ -19,7 +22,7 @@ const UserForm = ({ updateText, state, includeField, setAvatar }: any) => {
 					<Grid container md={4} item height="fit-content">
 						<AvatarEdit getAvatar={setAvatar} />
 					</Grid>
-					<Grid container md={7} item>
+					<Grid container md={7} item alignItems="center">
 						<Grid item xs={12} sx={{ mb: 0, mt: 0 }}>
 							{state.personalDetails.map(
 								(
@@ -41,55 +44,65 @@ const UserForm = ({ updateText, state, includeField, setAvatar }: any) => {
 										onChange={(e) =>
 											updateText(e.target.value, el.id, "personalDetails")
 										}
+										inputProps={{ maxLength: 20 }}
 									/>
 								)
 							)}
 						</Grid>
-						<Grid
-							container
-							className="include"
-							gap={2}
-							xs={12}
-							item
-							justifyContent="space-between"
-						>
-							{state.skills.map(
-								(
-									el: {
-										id: number;
-										shouldInclude: boolean;
-										content: string;
-										fieldName: string;
-									},
-									i: number
-								) => (
-									<Grid item xs={12} sm={5} key={i}>
-										<FormControlLabel
-											control={
-												<Switch
-													onChange={(e) =>
-														includeField(e.currentTarget, el.id, "skills")
-													}
-													checked={el.shouldInclude}
-												/>
-											}
-											label="Include in PDF"
-										/>
-										<TextField
-											fullWidth
-											value={el.content}
-											label={el.fieldName}
-											multiline
-											maxRows={5}
-											helperText={el.fieldName}
-											onChange={(e) =>
-												updateText(e.target.value, el.id, "skills")
-											}
-										/>
-									</Grid>
-								)
-							)}
-						</Grid>
+					</Grid>
+					<Grid
+						container
+						className="include"
+						gap={2}
+						xs={12}
+						item
+						justifyContent="space-between"
+					>
+						{state.skills.map(
+							(
+								el: {
+									id: number;
+									shouldInclude: boolean;
+									content: string;
+									fieldName: string;
+								},
+								i: number
+							) => (
+								<Grid
+									item
+									xs={12}
+									sm={5}
+									key={i}
+									borderBottom={1}
+									borderColor="#E0E0E0"
+									paddingBottom={3}
+								>
+									<Typography
+										color="rgb(5, 150, 255)"
+										variant="h5"
+										fontWeight={500}
+									>
+										{el.fieldName}
+									</Typography>
+									<FormControlLabel
+										control={
+											<Switch
+												onChange={(e) =>
+													includeField(e.currentTarget, el.id, "skills")
+												}
+												checked={el.shouldInclude}
+											/>
+										}
+										label="Include in PDF"
+									/>
+									<Editor
+										onWriting={(text: string) =>
+											updateText(text, el.id, "skills")
+										}
+									/>
+								</Grid>
+							)
+						)}
 					</Grid>
 				</Grid>
 			</Grid>
